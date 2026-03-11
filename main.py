@@ -8,9 +8,9 @@ import subprocess
 def init_vllm(model_hf: str, local_api_port: int = 8000, api_key: str = "key123456", precision: str = "float16"):
     cmd = [
         "vllm", "serve", model_hf,
-        "--gpu-memory-utilization", "0.35",
-        "--max-model-len", "256",
-        "--max-num-seqs", "45",
+        "--gpu-memory-utilization", "0.4",
+        "--max-model-len", "1024",
+        "--max-num-seqs", "256",
         "--api-key", api_key,
         "--chat-template", "{% for message in messages %}{{ message['role'] }}: {{ message['content'] }}\n{% endfor %}{% if add_generation_prompt %}{{ '<|assistant|>' }}{% endif %}",  # Inline simple
         "--host", "0.0.0.0", "--port", str(local_api_port)

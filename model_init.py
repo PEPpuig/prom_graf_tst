@@ -11,7 +11,7 @@ import time
 _vllm_process = None
 _client = None
 
-def client_call(prompt: str, model: str, max_tokens: int =128 , local_port: int = 8000, api_key: str = "key123456") -> str:
+def client_call(prompt: str, model: str, max_tokens: int =512 , local_port: int = 8000, api_key: str = "key123456") -> str:
   
     _client = OpenAI(
         base_url=f"http://localhost:{local_port}/v1",
